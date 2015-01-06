@@ -39,7 +39,6 @@ description
             , minLength: 1          // only for strings, buffers
             , maxLength: 20         // only for strings, buffers
             , required: false       
-            , nullable: true
             , pattern: /hui/gi      // only for strings, buffers
             , validator: function() {}
         }

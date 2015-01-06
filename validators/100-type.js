@@ -13,8 +13,15 @@
         /**
          * prepare the validator (check against other validators)
          */
-        , prepare: function() {
-            
+        , prepare: function(validatorList) {
+            /*validatorList.forEach(function(validator) {
+                if (validator.name === 'nullable') {
+                    this.nullable = validator.value;
+                }
+                else if (validator.name === 'required') {
+                    this.required = validator.value;
+                }
+            }.bind(this));*/
         }
 
 
@@ -38,12 +45,12 @@
     });
 
 
-    module.exports.STRING = 'string';
-    module.exports.NUMBER = 'number';
-    module.exports.BOOLEAN = 'boolean';
-    module.exports.OBJECT = 'object';
-    module.exports.ARRAY = 'array';
-    module.exports.REGEXP = 'regexp';
-    module.exports.NULL = 'string';
-    module.exports.UNDEFINED = 'undefined';
+    module.exports.STRING       = 'string';
+    module.exports.NUMBER       = 'number';
+    module.exports.BOOLEAN      = 'boolean';
+    module.exports.OBJECT       = 'object';
+    module.exports.ARRAY        = 'array';
+    module.exports.REGEXP       = 'regexp';
+    module.exports.NULL         = 'null';
+    module.exports.UNDEFINED    = 'undefined';
 }();
