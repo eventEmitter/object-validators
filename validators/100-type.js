@@ -8,11 +8,12 @@
 
 
     module.exports = new Class({
+        inherits: BaseValidator
 
         /**
          * prepare the validator (check against other validators)
          */
-        prepare: function() {
+        , prepare: function() {
             
         }
 
@@ -22,6 +23,17 @@
          */
         , isValid: function(input) {
             return type(input) === this.value;
+        }
+
+
+        /**
+         * returns meaningful error message data
+         */
+        , getData: function(input) {
+            return {
+                  expected  : this.value
+                , got       : type(input)
+            };
         }
     });
 
