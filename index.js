@@ -1,5 +1,5 @@
 !function() {
 
-	module.exports = require('./lib/ValidatorCollection');
+	module.exports = require('./lib/ValidatorConfig');
 
 }();

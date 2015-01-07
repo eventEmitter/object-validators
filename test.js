@@ -1,24 +1,31 @@
 
 
-    var ValidatorCollection = require('./')
+    var   Validator = require('./').Validator
         , log = require('ee-log');
 
 
+    var types = Validator.getValidator('type');
+    
 
-    var collection = new ValidatorCollection();
-
-
-
-    var validator = collection.createValidator({
-        a:{
-              type      : collection.getValidator('type').STRING
+    var validator = new Validator({
+        a: {
+              type      : types.STRING
             , nullable  : false
             , required  : true
-            , length    : 3
-            , minLength : 3
-            , maxLength : 3
+            , pattern     : /hui/gi
+            //, length    : 3
+            //, minLength : 3
+            //, maxLength : 3
         }
+        , b: new Validator({
+            x: {
+                type: types.STRING
+            }
+        })
     });
 
 
-    validator.validate({a: 'ilf'}).then(log).catch(log);
+    validator.validate({a: 'hui', b: {x: ''}}).then(log).catch(log);
+
+
+

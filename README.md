@@ -13,23 +13,20 @@ description
 
 ## usage
 
+Set up a validator configuration
 
-    var   ValidatorCollection = require('object-validatorss')
-        , collection
-        , Validator
+    var   ObjectValidators = require('object-validatorss')
+        , validators
         , validator;
 
-    // create a new validator collection that
+    // create a new validator configuration that
     // can be extended with custom validators
     // and custom translations
-    collection = new ValidatorCollection();
-
-    // get the validator class
-    Validator = collection.Validator;
+    validators = new ObjectValidators();
 
 
     // create a validator for an object
-    validator = new Validator({
+    validators.createValidator({
         name: {
               type: validator.STRING
             , min: 10               // numbers only
@@ -39,31 +36,50 @@ description
             , minLength: 1          // only for strings, buffers
             , maxLength: 20         // only for strings, buffers
             , required: false       
-            , pattern: /hui/gi      // only for strings, buffers
-            , validator: function() {}
+            , pattern: /hui/gi      // only for strings
         }
-        , related: new Validator();
+        , related: validators.createValidator({});
     });
 
 
-    // the validator function is treated as async if it accepts two parameters
-    // parameter 1 is the input, parameter 2 the callback
 
-    // the validator validates either the object or all objects
-    // inside an array passed to it. each object may contain key pointing to 
-    // other validator
+or use the default configuration
 
 
+     var  Validator = require('object-validatorss').Validator
+        , validator;
 
-    // sync validation, will throw an error as soon 
-    // an async validator is encountered
-    validator.validate(input);
+    validator = new Validator{
+        name: {
+              type: validator.STRING
+            , min: 10               // numbers only
+            , max: 3000             // numbers only
+            , value: 89999          // must have the type defined by the type filed
+            , length: 10            // only for strings, buffers
+            , minLength: 1          // only for strings, buffers
+            , maxLength: 20         // only for strings, buffers
+            , required: false       
+            , pattern: /hui/gi      // only for strings
+        }
+        , related: new Validator({});
+    });
 
 
 
-    // async, using promises
-    validator.validate(input).then().catch();
+the validator validates either the object or all objects inside an array passed to it. each object may contain key pointing to other validator 
+
+validation is async
 
 
-    // async using a callback
-    validator.validate(input, cb);
+    // using promises
+    validator.validate(input).then(function() {
+        // is valid
+    }.bind(this)).catch(function(message) {
+
+    }.bind(this));
+
+
+    // using a callback
+    validator.validate(input, function(isValid, message) {
+        // isnt valid
+    });

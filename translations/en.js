@@ -10,5 +10,9 @@
         , length                        : 'The property $property $index should have a length of $expected, got $got!'
         , minLength                     : 'The property $property $index should have a length of at least $expected, got $got!'
         , maxLength                     : 'The property $property $index should have a length of not more than $expected, got $got!'
+        , min                           : 'The property $property $index should have a value of at least $expected, got $got!'
+        , max                           : 'The property $property $index should have a value of not more than $expected, got $got!'
+        , value                         : 'The property $property $index should have the value $expected, got $got!'
+        , pattern                       : 'The property $property $index should match the pattern $expected, got $got!'
     };
 }();
