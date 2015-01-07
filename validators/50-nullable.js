@@ -10,19 +10,24 @@
     module.exports = new Class({
         inherits: BaseValidator
 
+        /**
+         * set the validator ip
+         */
+        , init: function init() {
+            init.super.apply(this, arguments);
 
-        // don't check any forward rules if this rule is ok
-        , stopValidation: true
+            this.nullable = !!this.value;
+        }
 
-        // ignore if this is false
-        , isOptional: true
+
 
 
         /**
          * check the input type
          */
         , isValid: function(input) {
-            return input === null;
+            if (this.nullable) return input === null ? this.COMPLETE : this.VALID;
+            else return input === null ? this.INVALID : this.VALID;
         }
     });
 }();

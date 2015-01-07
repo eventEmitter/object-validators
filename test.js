@@ -11,10 +11,14 @@
 
     var validator = collection.createValidator({
         a:{
-              type      : collection.getValidator('type').NUMBER
-            , nullable  : true
-            , required  : false
+              type      : collection.getValidator('type').STRING
+            , nullable  : false
+            , required  : true
+            , length    : 3
+            , minLength : 3
+            , maxLength : 3
         }
     });
 
-    validator.validate({a: 345}).then(log).catch(log);
+
+    validator.validate({a: 'ilf'}).then(log).catch(log);

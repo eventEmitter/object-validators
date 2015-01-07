@@ -29,7 +29,7 @@
          * check the input type
          */
         , isValid: function(input) {
-            return type(input) === this.value;
+            return type(input) === this.value ? this.VALID : this.INVALID;
         }
 
 
@@ -43,6 +43,7 @@
             };
         }
     });
+    
 
 
     module.exports.STRING       = 'string';
@@ -51,6 +52,7 @@
     module.exports.OBJECT       = 'object';
     module.exports.ARRAY        = 'array';
     module.exports.REGEXP       = 'regexp';
+    module.exports.BUFFER       = 'buffer';
     module.exports.NULL         = 'null';
     module.exports.UNDEFINED    = 'undefined';
 }();
