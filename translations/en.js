@@ -14,5 +14,6 @@
         , max                           : 'The property $property $index should have a value of not more than $expected, got $got!'
         , value                         : 'The property $property $index should have the value $expected, got $got!'
         , pattern                       : 'The property $property $index should match the pattern $expected, got $got!'
+        , semver                        : 'The property $property $index should be a semantiv version string, got $got instead!'
     };
 }();
