@@ -1,5 +1,7 @@
 # object-validators
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/eventEmitter/object-validators.svg)](https://greenkeeper.io/)
+
 description
 
 ## installation
